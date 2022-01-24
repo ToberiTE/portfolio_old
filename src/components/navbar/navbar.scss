@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  height: 4em;
+  flex-direction: column;
+  width: 100%;
+
+  .logo {
+    margin: 1rem 0 1.5rem 2rem;
+    width: 10rem;
+  }
+}
