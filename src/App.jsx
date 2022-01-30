@@ -1,7 +1,7 @@
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./components/landing/Landing";
 import Services from "./components/services/Services";
-import Portfolio from "./components/portfolio/Portfolio";
+import Projects from "./components/projects/Projects";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="sections">
         <Landing />
         <Services />
-        <Portfolio />
+        <Projects />
       </div>
     </div>
   );

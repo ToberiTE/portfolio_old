@@ -1,11 +1,48 @@
-.navbar {
-  display: flex;
-  height: 4em;
-  flex-direction: column;
-  width: 100%;
+@import "../../global";
 
-  .logo {
-    margin: 1rem 0 1.5rem 2rem;
-    width: 10rem;
+.navbar {
+  position: fixed;
+  overflow: hidden;
+  width: 90vw;
+  z-index: 2;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+  a {
+    font-size: 0;
+  }
+  ul {
+    display: flex;
+
+    li:first-of-type {
+      padding-right: 2rem;
+    }
+
+    li a {
+      font-weight: 300;
+      font-size: 1.3rem;
+      letter-spacing: 0.05rem;
+      display: block;
+
+      padding: 0 0rem;
+      margin-inline: 1rem;
+      color: $clr-primary;
+      transition: color 0.3s;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $clr-accent-2;
+      }
+
+      i {
+        color: $clr-primary;
+        font-size: 1.465rem;
+        padding-right: 0.8rem;
+      }
+    }
   }
 }

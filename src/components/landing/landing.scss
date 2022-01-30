@@ -1,81 +1,162 @@
 @import "../../global";
 
 .landing {
-  height: calc(100vh - 4em);
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.photo {
-  opacity: 0;
-  width: 8rem;
-  scale: 1;
-  border-radius: 50%;
-  border: 2px solid $clr-accent-2;
-}
-.bubble {
-  transform: translate3d(6.8rem, -6.5rem, 0);
-  scale: 1.5;
-  opacity: 0;
-}
-.span-wrapper {
-  opacity: 0;
-  display: flex;
-  width: 40%;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  span {
-    color: $clr-accent-1;
-  }
-  span:nth-child(even) {
-    color: $clr-accent-2;
-  }
-}
-.photo-fade-in {
-  animation: photoFadeIn 1s 1s linear forwards, overlayFade 1s 4s forwards;
-  @keyframes photoFadeIn {
-    0% {
-      opacity: 0;
-      transform: translateX(-25vw);
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes overlayFade {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-      mix-blend-mode: overlay;
-    }
-  }
-}
 
-.bubble-fade-in-out {
-  animation: bubbleFadeInOut 3.5s 3s forwards;
-  @keyframes bubbleFadeInOut {
-    10% {
-      opacity: 1;
+  .body-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 60%;
+
+    h1 {
+      font-size: 6.625rem;
+      font-weight: 200;
+      color: $clr-accent-1;
+
+      &:first-child {
+        position: relative;
+        color: $clr-primary;
+        font-weight: 400;
+
+        &::after {
+          content: "";
+          position: absolute;
+          border: 1px solid $clr-accent-4;
+          width: 15rem;
+          margin-left: -15%;
+          top: 21rem;
+          left: 15%;
+        }
+      }
     }
-    90% {
-      opacity: 1;
+
+    .smile-icon {
+      width: 6rem;
+      margin-inline: 2rem;
+      transform: translateY(1rem);
     }
-    100% {
+
+    .social-container {
       opacity: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      margin-top: 4rem;
+
+      .social-text {
+        display: flex;
+        font-size: 1.625rem;
+        padding-right: 2rem;
+      }
+
+      .social-link {
+        color: $clr-accent-3;
+        font-size: 2.625rem;
+        margin-inline: 0.6rem;
+        opacity: 1;
+      }
+    }
+
+    .text-wrapper {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 30em;
+    }
+
+    p {
+      padding-right: 1rem;
+      font-weight: 300;
+
+      &:nth-child(even) {
+        color: $clr-accent-2;
+      }
+    }
+
+    .typewriter {
+      animation: typewriter 3s 4s steps(100, end) both normal;
+      @keyframes typewriter {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 28em;
+        }
+      }
     }
   }
-}
-.text-fade-in {
-  animation: textFadeIn 2s 6.5s forwards;
-  @keyframes textFadeIn {
-    0% {
-      opacity: 0;
+
+  .fade-in {
+    animation: textFadeIn 3s 2s forwards;
+    @keyframes textFadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
-    100% {
-      opacity: 1;
+  }
+
+  .scroll {
+    opacity: 0;
+    padding-top: 4.375rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    z-index: 2;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    color: $clr-primary;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    text-decoration: none;
+  }
+  .scroll-fade-in {
+    animation: textFadeIn 3s 7s forwards;
+    @keyframes textFadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  .scroll span {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: -12px;
+    border-left: 2px solid $clr-primary;
+    border-bottom: 2px solid $clr-primary;
+    transform: rotate(-45deg);
+    animation: movement 1.5s 6s infinite;
+    @keyframes movement {
+      0% {
+        transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(-45deg) translate(-1.5rem, 1.5rem);
+        opacity: 0;
+      }
     }
   }
 }

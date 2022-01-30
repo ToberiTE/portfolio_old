@@ -1,7 +1,56 @@
+@import "../../global.scss";
 .services {
-  height: calc(100vh - 4em);
+  margin-top: 12.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60%;
+
+    h1 {
+      display: flex;
+      margin-top: 25%;
+      margin-bottom: 10rem;
+      flex-direction: column;
+      align-self: flex-start;
+      font-size: 6.625rem;
+      font-weight: 200;
+      position: relative;
+      color: $clr-accent-1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        border: 1px solid $clr-accent-4;
+        width: 15rem;
+        margin-left: -15%;
+        top: 10rem;
+        left: 15%;
+      }
+    }
+    img {
+      min-width: 12rem;
+    }
+
+    .services-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%;
+      margin-block: 10%;
+    }
+  }
+}
+.services-item:nth-of-type(odd) {
+  display: flex;
+  align-self: flex-start;
+}
+.services-item:nth-of-type(even) {
+  display: flex;
+  align-self: flex-end;
 }

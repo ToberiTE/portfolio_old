@@ -1,7 +1,0 @@
-<svg width="150" height="100" xmlns="http://www.w3.org/2000/svg">
- <g id="Layer_1">
-  <title>Layer 1</title>
-  <path fill-opacity="0" id="svg_1" d="m1.89499,8.48452l0,0c0,-3.36177 4.10406,-6.08702 9.16667,-6.08702l4.16667,0l0,0l20,0l37.49999,0c2.43116,0 4.76273,0.64131 6.48182,1.78285c1.71908,1.14154 2.68485,2.6898 2.68485,4.30417l0,15.21755l0,0l0,9.13053l0,0c0,3.36177 -4.10405,6.08702 -9.16667,6.08702l-37.49999,0l-26.12753,15.47788l6.12753,-15.47788l-4.16667,0c-5.06261,0 -9.16667,-2.72525 -9.16667,-6.08702l0,0l0,-9.13053l0,0l0,-15.21755z" stroke="#ffffff" fill="#ffffff"/>
-  <text style="cursor: move;" font-style="italic" xml:space="preserve" text-anchor="start" font-family="'Work Sans'" font-size="24" id="svg_3" y="28" x="12" stroke-width="0" stroke="#000" fill="#ffffff">Hello.</text>
- </g>
-</svg>
