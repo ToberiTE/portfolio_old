@@ -14,10 +14,13 @@ html {
   scrollbar-color: #310046 #c7c7c7;
 }
 ::-webkit-scrollbar {
-  width: 1em;
+  width: 0.4em;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(260, 100%, 40%);
+  background: #c7c7c7;
+}
+::-webkit-scrollbar-thumb {
+  background: #310046;
 }
 body {
   overflow-y: scroll;
@@ -25,10 +28,9 @@ body {
   max-width: 90vw;
   min-width: 54.5rem;
   opacity: 0;
-  background: #1a0029;
-  // background: url(../src/img/bg.jpg) center / cover no-repeat fixed,
-  //   linear-gradient(to bottom, hsla(0, 0%, 0%, 0.2), #170024) center / cover
-  //     no-repeat fixed;
+  background: url(../src/img/bg.jpg) center / cover no-repeat fixed,
+    linear-gradient(to bottom, hsla(0, 0%, 0%, 0.2), hsla(278, 100%, 7%, 0.95))
+      center / cover no-repeat fixed;
   background-blend-mode: darken;
   font-family: $ff-primary;
   color: $clr-primary;
