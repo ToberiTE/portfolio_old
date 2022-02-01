@@ -9,30 +9,23 @@
   .body-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-width: 60%;
 
     h1 {
-      display: flex;
       margin-top: 30%;
       margin-bottom: 10rem;
-      flex-direction: column;
-      align-self: flex-start;
-      font-size: 6.625rem;
       font-weight: 200;
       position: relative;
-      color: $clr-accent-1;
 
-      &::after {
+      &:nth-child(1)::after {
         content: "";
         position: absolute;
         border: 1px solid $clr-accent-4;
-        width: 15rem;
-        margin-left: -15%;
-        top: 10rem;
-        left: 15%;
+        width: 20%;
+        left: 0;
+        top: 100%;
       }
     }
+
     img {
       min-width: 12rem;
     }
@@ -41,7 +34,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 50%;
+      min-width: 50%;
       margin-block: 10%;
     }
   }

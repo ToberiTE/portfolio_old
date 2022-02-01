@@ -11,27 +11,23 @@
   .body-container {
     display: flex;
     flex-direction: column;
-    min-width: 60%;
 
     h1 {
-      font-size: 6.625rem;
-      font-weight: 200;
-      color: $clr-accent-1;
+      color: $clr-primary;
+      font-weight: 400;
 
-      &:first-child {
+      &:nth-child(2) {
+        font-weight: 200;
+        color: $clr-accent-1;
         position: relative;
-        color: $clr-primary;
-        font-weight: 400;
-
-        &::after {
-          content: "";
-          position: absolute;
-          border: 1px solid $clr-accent-4;
-          width: 15rem;
-          margin-left: -15%;
-          top: 21rem;
-          left: 15%;
-        }
+      }
+      &:nth-child(2)::after {
+        content: "";
+        position: absolute;
+        border: 1px solid $clr-accent-4;
+        width: 20%;
+        left: 0;
+        top: 100%;
       }
     }
 
