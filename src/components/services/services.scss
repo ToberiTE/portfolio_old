@@ -26,16 +26,21 @@
       }
     }
 
-    img {
-      min-width: 12rem;
-    }
-
     .services-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
       min-width: 50%;
       margin-block: 10%;
+      h2 {
+        font-size: unquote("clamp(1.3125rem, 5vw - .5rem, 2.2125rem)");
+      }
+      p {
+        font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
+      }
+      img {
+        width: unquote("clamp(5rem, 10vw - 1rem, 10rem)");
+      }
     }
   }
 }

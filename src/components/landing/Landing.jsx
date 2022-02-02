@@ -6,7 +6,7 @@ export default function Landing() {
     <div className="landing" id="landing">
       <div className="body-container">
         <h1>DigitalCarpentry.</h1>
-        <h1 className="border-anchor">
+        <h1>
           Turning Ideas &gt;
           <img className="smile-icon" src={smile} alt=""></img>
         </h1>

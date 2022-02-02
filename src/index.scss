@@ -28,13 +28,9 @@ html {
 body {
   overflow-y: scroll;
   margin-inline: auto;
-  height: 100%;
+  height: 100vh;
   width: unquote("max(90vw, 24.5rem)");
   opacity: 0;
-  background: url(../src/img/bg.jpg) center / cover no-repeat fixed,
-    linear-gradient(to bottom, hsla(0, 0%, 0%, 0.2), hsla(278, 100%, 7%, 0.95))
-      center / cover no-repeat fixed;
-  background-blend-mode: darken;
   font-family: $ff-primary;
   color: $clr-primary;
   font-weight: 300;
@@ -49,6 +45,22 @@ body {
       opacity: 1;
     }
   }
+  .bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9999;
+    background: url(../src/img/bg.jpg) center / cover no-repeat,
+      linear-gradient(
+          to bottom,
+          hsla(0, 0%, 0%, 0.2),
+          hsla(278, 100%, 7%, 0.95)
+        )
+        center / cover no-repeat;
+    background-blend-mode: darken;
+  }
 }
 
 * > .body-container {
@@ -56,7 +68,7 @@ body {
 }
 
 h1 {
-  font-size: unquote("clamp(2.125rem, 5vw - .5rem, 6.625rem)");
+  font-size: unquote("clamp(2.625rem, 5vw, 6.625rem)");
 }
 
 ul {
