@@ -7,6 +7,9 @@ export default function Navbar() {
       <a href="#landing" className="logo">
         <img src={logo} alt="logo"></img>
       </a>
+      <a href="#services" className="skip-link">
+        Skip to content
+      </a>
       <nav>
         <ul>
           <li>

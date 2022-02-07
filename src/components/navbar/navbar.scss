@@ -11,6 +11,21 @@
   justify-content: space-between;
   flex-direction: row;
 
+  .skip-link {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    border: 1px solid $clr-primary;
+    border-radius: 0.25rem;
+    font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
+    left: 50%;
+    transform: translateX(-50%);
+    color: $clr-primary;
+    transform: translate3d(0, -250%, 0);
+    &:focus {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
   a {
     font-size: 0;
   }
@@ -23,7 +38,7 @@
 
     li a {
       font-weight: 300;
-      font-size: 1.3rem;
+      font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
       letter-spacing: 0.05rem;
       display: block;
       margin-inline: 1rem;

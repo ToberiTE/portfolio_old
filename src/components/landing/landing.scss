@@ -9,10 +9,7 @@
   align-items: center;
 
   .body-container {
-    display: flex;
-    flex-direction: column;
-
-    h1 {
+    & h1 {
       color: $clr-primary;
       font-weight: 400;
 
@@ -32,9 +29,9 @@
     }
 
     .smile-icon {
-      width: 6rem;
-      margin-inline: 2rem;
-      transform: translateY(1rem);
+      width: unquote("max(4.5vw, 3rem)");
+      margin-inline: unquote("max(2vw, 1rem)");
+      transform: translateY(unquote("clamp(.6rem, .8vw, 2.625rem)"));
     }
 
     .social-container {
@@ -45,9 +42,8 @@
       margin-top: 4rem;
 
       .social-text {
-        display: flex;
         font-size: unquote("clamp(1.3125rem, 5vw - 1rem, 1.625rem)");
-        padding-right: 2rem;
+        padding-right: unquote("max(2vw, 1rem)");
       }
 
       .social-link {
@@ -61,29 +57,66 @@
     .text-wrapper {
       margin-top: 2rem;
       display: flex;
-      flex-direction: column;
       overflow: hidden;
       white-space: nowrap;
-      width: 50%;
-    }
-
-    p {
-      padding-right: 1rem;
-      font-weight: 300;
-
-      &:nth-child(even) {
-        color: $clr-accent-2;
+      @media (max-width: 60em) {
+        transform: translateY(1rem);
+        flex-direction: column;
+      }
+      & p {
+        padding-right: 1rem;
+        font-weight: 300;
+        font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
+        &:nth-child(even) {
+          color: $clr-accent-2;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          height: 2rem;
+          width: 0.2rem;
+          border-left: 2px solid $clr-accent-1;
+        }
       }
     }
 
     .typewriter {
-      animation: typewriter 3s 4s steps(100, end) both normal;
-      @keyframes typewriter {
-        0% {
-          width: 0;
+      @media (min-width: 60em) {
+        animation: typewriter 3s 4s steps(57) forwards,
+          caret 1s steps(2) infinite;
+        @keyframes typewriter {
+          0% {
+            width: 0;
+          }
+          100% {
+            width: 32em;
+          }
         }
-        100% {
-          width: 28em;
+      }
+      @media (max-width: 60em) {
+        animation: textscroll 6s steps(4) forwards,
+          typewriter 2s steps(20) forwards, caret 1s steps(2) infinite;
+        @keyframes typewriter {
+          0% {
+            width: 0;
+          }
+          100% {
+            width: 12rem;
+          }
+        }
+        @keyframes textscroll {
+          100% {
+            transform: translateY(-1.5rem);
+          }
+        }
+      }
+
+      @keyframes caret {
+        from {
+          display: hidden;
+        }
+        to {
+          display: block;
         }
       }
     }
@@ -112,6 +145,7 @@
     transform: translate(-50%, -50%);
     color: $clr-primary;
     letter-spacing: 0.05em;
+    font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
     font-weight: 300;
     text-decoration: none;
   }
@@ -136,7 +170,7 @@
     transform: translate(0, -50%);
     width: 1.5rem;
     height: 1.5rem;
-    margin-left: -12px;
+    margin-left: -0.65rem;
     border-left: 2px solid $clr-primary;
     border-bottom: 2px solid $clr-primary;
     transform: rotate(-45deg);

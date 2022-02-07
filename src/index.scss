@@ -45,6 +45,7 @@ body {
       opacity: 1;
     }
   }
+
   .bg {
     position: fixed;
     top: 0;
@@ -52,14 +53,57 @@ body {
     width: 100%;
     height: 100%;
     z-index: -9999;
-    background: url(../src/img/bg.jpg) center / cover no-repeat,
-      linear-gradient(
-          to bottom,
-          hsla(0, 0%, 0%, 0.2),
-          hsla(278, 100%, 7%, 0.95)
-        )
-        center / cover no-repeat;
-    background-blend-mode: darken;
+    background: linear-gradient(
+        180deg,
+        hsl(170, 100%, 3%),
+        hsl(170, 100%, 8%),
+        hsl(170, 100%, 13.5%) 84%,
+        hsl(170, 100%, 10%) 86%,
+        hsl(170, 100%, 4%)
+      )
+      center / cover no-repeat;
+
+    & .stars-layer {
+      height: 85%;
+      width: 100%;
+      z-index: -9000;
+      background: url(./img/stars.svg) center / cover no-repeat;
+    }
+    .blink-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      & .blink-layer {
+        width: 3%;
+        border-radius: 50%;
+        z-index: 1;
+        animation: blink 40s linear infinite;
+        background: linear-gradient(
+            180deg,
+            hsl(170, 100%, 3%),
+            hsl(170, 100%, 8%),
+            hsl(170, 100%, 13.5%) 84%,
+            hsl(170, 100%, 10%) 86%,
+            hsl(170, 100%, 4%)
+          )
+          0% 0% repeat;
+        @keyframes blink {
+          0% {
+            transform: translateX(300%);
+          }
+          50% {
+            transform: translateX(-300%);
+          }
+          100% {
+            transform: translateX(300%);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -85,7 +129,7 @@ a {
     font-size: 1.325rem;
     position: absolute;
     opacity: 0;
-    transition: all 0.1s 0.8s ease-in;
+    transition: all 0.1s 1s ease;
     padding: 0.2rem 0.8rem;
     color: $clr-primary;
     pointer-events: none;
