@@ -33,11 +33,21 @@ export default function Landing() {
             </a>
           </div>
         </div>
-        <div className="text-wrapper typewriter">
-          <p>Developer</p>
-          <p>Technical Writer</p>
-          <p>IT Generalist</p>
-          <p>Security Enthusiast</p>
+        <div className="titles-wrapper">
+          <ul>
+            <li className="li-1">
+              <p>Developer</p>
+            </li>
+            <li className="li-2">
+              <p>Technical Writer</p>
+            </li>
+            <li className="li-3">
+              <p>IT Generalist</p>
+            </li>
+            <li className="li-4">
+              <p>Security Enthusiast</p>
+            </li>
+          </ul>
         </div>
       </div>
       <a className="scroll scroll-fade-in" href="#services">

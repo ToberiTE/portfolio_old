@@ -9,7 +9,7 @@
   align-items: center;
 
   .body-container {
-    & h1 {
+    h1 {
       color: $clr-primary;
       font-weight: 400;
 
@@ -18,6 +18,7 @@
         color: $clr-accent-1;
         position: relative;
       }
+
       &:nth-child(2)::after {
         content: "";
         position: absolute;
@@ -39,7 +40,7 @@
       display: flex;
       align-items: center;
       flex-direction: row;
-      margin-top: 4rem;
+      transform: translateY(3rem);
 
       .social-text {
         font-size: unquote("clamp(1.3125rem, 5vw - 1rem, 1.625rem)");
@@ -54,69 +55,170 @@
       }
     }
 
-    .text-wrapper {
-      margin-top: 2rem;
-      display: flex;
+    .titles-wrapper {
+      transform: translateY(4rem);
       overflow: hidden;
       white-space: nowrap;
-      @media (max-width: 60em) {
-        transform: translateY(1rem);
-        flex-direction: column;
-      }
-      & p {
-        padding-right: 1rem;
-        font-weight: 300;
-        font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
-        &:nth-child(even) {
-          color: $clr-accent-2;
-        }
-        &::after {
-          content: "";
-          position: absolute;
-          height: 2rem;
-          width: 0.2rem;
-          border-left: 2px solid $clr-accent-1;
-        }
-      }
-    }
 
-    .typewriter {
-      @media (min-width: 60em) {
-        animation: typewriter 3s 4s steps(57) forwards,
-          caret 1s steps(2) infinite;
-        @keyframes typewriter {
-          0% {
-            width: 0;
+      ul {
+        display: flex;
+        @media (max-width: 60em) {
+          flex-direction: column;
+          animation: falling-text 6s 4s steps(3) forwards;
+          @keyframes falling-text {
+            100% {
+              transform: translateY(-0.2rem);
+            }
           }
-          100% {
-            width: 32em;
-          }
+          height: 7rem;
+          transform: translateY(-5.5rem);
         }
-      }
-      @media (max-width: 60em) {
-        animation: textscroll 6s steps(4) forwards,
-          typewriter 2s steps(20) forwards, caret 1s steps(2) infinite;
-        @keyframes typewriter {
-          0% {
-            width: 0;
-          }
-          100% {
-            width: 12rem;
-          }
-        }
-        @keyframes textscroll {
-          100% {
-            transform: translateY(-1.5rem);
-          }
-        }
-      }
 
-      @keyframes caret {
-        from {
-          display: hidden;
+        li {
+          overflow: hidden;
+          white-space: nowrap;
+          visibility: hidden;
+
+          &::after {
+            position: absolute;
+            content: "";
+            left: 0;
+            width: 0.5em;
+            height: 2em;
+            color: $clr-accent-1;
+            animation: caret 1s steps(2) infinite;
+            @keyframes caret {
+              0% {
+                visibility: hidden;
+              }
+              100% {
+                visibility: visible;
+              }
+            }
+          }
+
+          &:nth-child(even) {
+            color: $clr-accent-2;
+          }
+
+          p {
+            font-weight: 300;
+            font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
+          }
         }
-        to {
-          display: block;
+
+        .li-1 {
+          white-space: nowrap;
+          overflow: hidden;
+          animation: fade-li-1 2s 10s steps(50) forwards;
+          @keyframes fade-li-1 {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 4em;
+              visibility: visible;
+            }
+          }
+        }
+
+        .li-2 {
+          animation: fade-li-2 2s 8s steps(50) forwards;
+          @keyframes fade-li-2 {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 6.2em;
+              visibility: visible;
+            }
+          }
+        }
+
+        .li-3 {
+          animation: fade-li-3 2s 6s steps(50) forwards;
+          @keyframes fade-li-3 {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 5em;
+              visibility: visible;
+            }
+          }
+        }
+
+        .li-4 {
+          animation: fade-li-4 2s 4s steps(50) forwards;
+          @keyframes fade-li-4 {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 7.5em;
+              visibility: visible;
+            }
+          }
+        }
+
+        @media (min-width: 60em) {
+          .li-1 {
+            animation: fade-li-1 2s steps(50) forwards;
+            @keyframes fade-li-1 {
+              0% {
+                width: 0;
+              }
+              100% {
+                visibility: visible;
+                width: 4.5em;
+              }
+            }
+          }
+
+          .li-2 {
+            transform: translateX(7rem);
+            position: absolute;
+            animation: fade-li-2 2s 2s steps(50) forwards;
+            @keyframes fade-li-2 {
+              0% {
+                width: 0;
+              }
+              100% {
+                visibility: visible;
+                width: 7.2em;
+              }
+            }
+          }
+
+          .li-3 {
+            transform: translateX(17.5rem);
+            position: absolute;
+            animation: fade-li-3 2s 4s steps(50) forwards;
+            @keyframes fade-li-3 {
+              0% {
+                width: 0;
+              }
+              100% {
+                visibility: visible;
+                width: 5.6em;
+              }
+            }
+          }
+
+          .li-4 {
+            transform: translateX(26rem);
+            position: absolute;
+            animation: fade-li-4 2s 6s steps(50) forwards;
+            @keyframes fade-li-4 {
+              0% {
+                width: 0;
+              }
+              100% {
+                visibility: visible;
+                width: 8.5em;
+              }
+            }
+          }
         }
       }
     }
@@ -148,44 +250,44 @@
     font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
     font-weight: 300;
     text-decoration: none;
+
+    & span {
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(0, -50%);
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-left: -0.65rem;
+      border-left: 2px solid $clr-primary;
+      border-bottom: 2px solid $clr-primary;
+      transform: rotate(-45deg);
+      animation: movement 1.5s 6s infinite;
+      @keyframes movement {
+        0% {
+          transform: rotate(-45deg) translate(0, 0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: rotate(-45deg) translate(-1.5rem, 1.5rem);
+          opacity: 0;
+        }
+      }
+    }
   }
   .scroll-fade-in {
-    animation: textFadeIn 3s 7s forwards;
+    animation: textFadeIn 3s 10s forwards;
     @keyframes textFadeIn {
       0% {
         opacity: 0;
       }
       100% {
         opacity: 1;
-      }
-    }
-  }
-
-  .scroll span {
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(0, -50%);
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-left: -0.65rem;
-    border-left: 2px solid $clr-primary;
-    border-bottom: 2px solid $clr-primary;
-    transform: rotate(-45deg);
-    animation: movement 1.5s 6s infinite;
-    @keyframes movement {
-      0% {
-        transform: rotate(-45deg) translate(0, 0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotate(-45deg) translate(-1.5rem, 1.5rem);
-        opacity: 0;
       }
     }
   }
