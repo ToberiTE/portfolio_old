@@ -43,7 +43,7 @@
       transform: translateY(3rem);
 
       .social-text {
-        font-size: unquote("clamp(1.3125rem, 5vw - 1rem, 1.625rem)");
+        font-size: unquote("clamp(1.3125rem, 4.5vw - 1rem, 1.625rem)");
         padding-right: unquote("max(2vw, 1rem)");
       }
 
@@ -56,30 +56,39 @@
     }
 
     .titles-wrapper {
-      transform: translateY(4rem);
-      @media (max-width: 60em) {
-        overflow: hidden;
+      transform: translateY(3em);
+      @media (min-width: 60em) {
+        transform: translateY(4em);
       }
+
       ul {
         display: flex;
+
+        @media (min-width: 60em) {
+          height: 2em;
+          animation: falling-text 0s forwards;
+          @keyframes falling-text {
+            100% {
+              transform: translateY(0);
+            }
+          }
+        }
+        flex-direction: column;
+        height: 8rem;
+        transform: translateY(-5rem);
         animation: falling-text 6s 4s steps(3) forwards;
         @keyframes falling-text {
           100% {
             transform: translateY(-0.2rem);
           }
         }
-        @media (min-width: 60em) {
-          animation: none;
-        }
         @media (max-width: 60em) {
-          flex-direction: column;
-          height: 8rem;
-          transform: translateY(-5.5rem);
         }
 
         li {
           overflow: hidden;
           white-space: nowrap;
+          visibility: hidden;
 
           &::after {
             position: absolute;
@@ -105,13 +114,11 @@
 
           p {
             font-weight: 300;
-            font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.2825rem)");
+            font-size: unquote("clamp(1.1125rem, 4vw - 1rem, 1.2825rem)");
           }
         }
 
         .li-1 {
-          white-space: nowrap;
-          overflow: hidden;
           animation: fade-li-1 2s 10s steps(50) forwards;
           @keyframes fade-li-1 {
             0% {
@@ -282,6 +289,7 @@
       }
     }
   }
+
   .scroll-fade-in {
     animation: textFadeIn 3s 10s forwards;
     @keyframes textFadeIn {
