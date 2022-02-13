@@ -7,7 +7,7 @@ export default function Landing() {
       <div className="body-container">
         <h1>DigitalCarpentry.</h1>
         <h1>
-          Turning Ideas &gt;
+          Turning Ideas &#8594;
           <img className="smile-icon" src={smile} alt=""></img>
         </h1>
         <div className="social-container fade-in">

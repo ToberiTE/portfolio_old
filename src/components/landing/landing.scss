@@ -1,4 +1,5 @@
 @import "../../global";
+@import "../../mixins";
 
 .landing {
   height: 100vh;
@@ -57,56 +58,31 @@
 
     .titles-wrapper {
       transform: translateY(3em);
-      @media (min-width: 60em) {
+
+      @include screen(large) {
         transform: translateY(4em);
       }
 
       ul {
         display: flex;
 
-        @media (min-width: 60em) {
+        @include screen(large) {
           height: 2em;
-          animation: falling-text 0s forwards;
-          @keyframes falling-text {
-            100% {
-              transform: translateY(0);
-            }
-          }
         }
-        flex-direction: column;
-        height: 8rem;
-        transform: translateY(-5rem);
-        animation: falling-text 6s 4s steps(3) forwards;
-        @keyframes falling-text {
-          100% {
-            transform: translateY(-0.2rem);
-          }
-        }
-        @media (max-width: 60em) {
+
+        @include screen(small) {
+          flex-direction: column;
+          height: 8rem;
         }
 
         li {
           overflow: hidden;
           white-space: nowrap;
           visibility: hidden;
-
-          &::after {
-            position: absolute;
-            content: "";
-            left: 0;
-            width: 0.5em;
-            height: 2em;
-            color: $clr-accent-1;
-            animation: caret 1s steps(2) infinite;
-            @keyframes caret {
-              0% {
-                visibility: hidden;
-              }
-              100% {
-                visibility: visible;
-              }
-            }
-          }
+          max-width: fit-content;
+          position: relative;
+          padding-right: 0.1em;
+          width: 0;
 
           &:nth-child(even) {
             color: $clr-accent-2;
@@ -119,126 +95,88 @@
         }
 
         .li-1 {
-          animation: fade-li-1 2s 10s steps(50) forwards;
-          @keyframes fade-li-1 {
-            0% {
-              width: 0;
-            }
-            100% {
-              width: 5em;
-              visibility: visible;
-            }
+          @include writer(write-li-1, 5em);
+          animation: write-li-1 1500ms 4000ms steps(50) forwards;
+
+          &::after {
+            @extend %caret;
+            @include caret-move(caret-li-1, 5em);
+            animation: caret 500ms 4000ms steps(9) forwards,
+              caret-li-1 1500ms 4000ms steps(50) forwards;
           }
         }
 
         .li-2 {
-          animation: fade-li-2 2s 8s steps(50) forwards;
-          @keyframes fade-li-2 {
-            0% {
-              width: 0;
-            }
-            100% {
-              width: 7.5em;
-              visibility: visible;
-            }
+          @include writer(write-li-2, 7.5em);
+          @include screen(large) {
+            transform: translateX(7rem);
+            position: absolute;
+          }
+          animation: write-li-2 1500ms 5500ms steps(50) forwards;
+
+          &::after {
+            @extend %caret;
+            @include caret-move(caret-li-2, 7.5em);
+            animation: caret 500ms 5500ms steps(16) forwards,
+              caret-li-2 1500ms 5500ms steps(50) forwards;
           }
         }
 
         .li-3 {
-          animation: fade-li-3 2s 6s steps(50) forwards;
-          @keyframes fade-li-3 {
-            0% {
-              width: 0;
-            }
-            100% {
-              width: 6em;
-              visibility: visible;
-            }
+          @include screen(large) {
+            transform: translateX(17.5rem);
+            position: absolute;
+          }
+          @include writer(write-li-3, 6em);
+          animation: write-li-3 1500ms 7000ms steps(50) forwards;
+
+          &::after {
+            @extend %caret;
+            @include caret-move(caret-li-3, 6em);
+            animation: caret 500ms 7000ms steps(13) forwards,
+              caret-li-3 1500ms 7000ms steps(50) forwards;
           }
         }
 
         .li-4 {
-          animation: fade-li-4 2s 4s steps(50) forwards;
-          @keyframes fade-li-4 {
-            0% {
-              width: 0;
-            }
-            100% {
-              width: 9em;
-              visibility: visible;
-            }
-          }
-        }
-
-        @media (min-width: 60em) {
-          .li-1 {
-            animation: fade-li-1 2s steps(50) forwards;
-            @keyframes fade-li-1 {
-              0% {
-                width: 0;
-              }
-              100% {
-                visibility: visible;
-                width: 4.5em;
-              }
-            }
-          }
-
-          .li-2 {
-            transform: translateX(7rem);
-            position: absolute;
-            animation: fade-li-2 2s 2s steps(50) forwards;
-            @keyframes fade-li-2 {
-              0% {
-                width: 0;
-              }
-              100% {
-                visibility: visible;
-                width: 7.2em;
-              }
-            }
-          }
-
-          .li-3 {
-            transform: translateX(17.5rem);
-            position: absolute;
-            animation: fade-li-3 2s 4s steps(50) forwards;
-            @keyframes fade-li-3 {
-              0% {
-                width: 0;
-              }
-              100% {
-                visibility: visible;
-                width: 5.6em;
-              }
-            }
-          }
-
-          .li-4 {
+          @include screen(large) {
             transform: translateX(26rem);
             position: absolute;
-            animation: fade-li-4 2s 6s steps(50) forwards;
-            @keyframes fade-li-4 {
-              0% {
-                width: 0;
-              }
-              100% {
-                visibility: visible;
-                width: 8.5em;
-              }
-            }
+          }
+          @include writer(writer-li-4, 8.5em);
+          animation: writer-li-4 1500ms 8500ms steps(50) forwards;
+
+          &::after {
+            @extend %caret;
+            @include caret-move(caret-li-4, 8.5em);
+            animation: caret 500ms 8500ms steps(19) forwards,
+              caret-li-4 1500ms 8500ms steps(50) forwards;
           }
         }
       }
     }
   }
 
-  .fade-in {
-    animation: textFadeIn 3s 2s forwards;
-    @keyframes textFadeIn {
-      0% {
-        opacity: 0;
+  %caret {
+    position: absolute;
+    content: "";
+    width: 0.1em;
+    height: 1.1em;
+    top: 0.2em;
+    left: -0.05em;
+    background: $clr-accent-1;
+    visibility: hidden;
+    @keyframes caret {
+      100% {
+        visibility: visible;
       }
+    }
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: textFadeIn 3000ms 2000ms forwards;
+    @keyframes textFadeIn {
       100% {
         opacity: 1;
       }
@@ -246,17 +184,16 @@
   }
 
   .scroll {
-    opacity: 0;
     padding-top: 4.375rem;
     position: absolute;
     bottom: 1.25rem;
     left: 50%;
     z-index: 2;
     display: inline-block;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -20%);
     color: $clr-primary;
-    letter-spacing: 0.05em;
-    font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
+    letter-spacing: 0.02em;
+    font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.2625rem)");
     font-weight: 300;
     text-decoration: none;
 
@@ -266,36 +203,28 @@
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translate(0, -50%);
       width: 1.5rem;
       height: 1.5rem;
       margin-left: -0.65rem;
-      border-left: 2px solid $clr-primary;
-      border-bottom: 2px solid $clr-primary;
-      transform: rotate(-45deg);
-      animation: movement 1.5s 6s infinite;
+      border-left: 0.125rem solid $clr-primary;
+      border-bottom: 0.125rem solid $clr-primary;
+      transform: rotate(-45deg) translate(0, 0);
+      animation: movement 1500ms 6000ms infinite;
       @keyframes movement {
-        0% {
-          transform: rotate(-45deg) translate(0, 0);
-          opacity: 0;
-        }
         50% {
           opacity: 1;
         }
         100% {
           transform: rotate(-45deg) translate(-1.5rem, 1.5rem);
-          opacity: 0;
         }
       }
     }
   }
 
   .scroll-fade-in {
-    animation: textFadeIn 3s 10s forwards;
+    opacity: 0;
+    animation: textFadeIn 3000ms 10000ms forwards;
     @keyframes textFadeIn {
-      0% {
-        opacity: 0;
-      }
       100% {
         opacity: 1;
       }

@@ -2,7 +2,6 @@
 
 .navbar {
   position: fixed;
-  overflow: hidden;
   width: 90vw;
   z-index: 2;
   height: 10rem;
@@ -21,6 +20,7 @@
     transform: translateX(-50%);
     color: $clr-primary;
     transform: translate3d(0, -250%, 0);
+
     &:focus {
       transform: translate3d(-50%, 0, 0);
     }
