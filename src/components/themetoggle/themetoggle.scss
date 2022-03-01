@@ -1,0 +1,53 @@
+.container-toggle {
+  display: flex;
+}
+
+.toggle-checkbox {
+  opacity: 0;
+
+  &:focus-visible + .toggle-label {
+    outline: dotted 0.1rem var(--clr-primary);
+  }
+
+  &:checked + .toggle-label {
+    &:before {
+      background: url(../../img/moon.svg) center / cover no-repeat;
+      animation: moon 350ms forwards;
+      @keyframes moon {
+        0% {
+          transform: translateX(0rem);
+        }
+        100% {
+          transform: translateX(2.2rem);
+        }
+      }
+    }
+  }
+}
+
+.toggle-label {
+  cursor: pointer;
+  position: relative;
+  width: 4.5rem;
+  height: 2.4rem;
+  border: 0.1rem solid var(--clr-toggleborder);
+  border-radius: 100vw;
+
+  &:before {
+    position: absolute;
+    content: "";
+    width: 2rem;
+    aspect-ratio: 1;
+    top: 0.1075rem;
+    background: url(../../img/sun.svg) center / cover no-repeat;
+    animation: sun 350ms forwards;
+    @keyframes sun {
+      0% {
+        transform: translateX(2.2rem);
+      }
+      100% {
+        transform: translateX(0.15rem);
+      }
+    }
+  }
+}

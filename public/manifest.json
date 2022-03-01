@@ -1,0 +1,21 @@
+{
+  "name": "Portfolio",
+  "short_name": "Portfolio",
+  "background_color": "var(--clr-bg)",
+  "theme_color": "var(--clr-bg)",
+  "description": "TE's developer portfolio.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone"
+}

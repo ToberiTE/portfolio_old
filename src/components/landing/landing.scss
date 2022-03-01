@@ -1,9 +1,8 @@
-@import "../../global";
+@import "../../variables";
 @import "../../mixins";
 
 .landing {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,12 +10,11 @@
 
   .body-container {
     h1 {
-      color: $clr-primary;
       font-weight: 400;
 
       &:nth-child(2) {
         font-weight: 200;
-        color: $clr-accent-1;
+        color: var(--clr-accent-1);
         position: relative;
       }
 
@@ -31,9 +29,11 @@
     }
 
     .smile-icon {
-      width: unquote("max(4.5vw, 3rem)");
+      max-width: unquote("max(4.5vw, 2.5rem)");
+      aspect-ratio: 1;
       margin-inline: unquote("max(2vw, 1rem)");
       transform: translateY(unquote("clamp(.6rem, .8vw, 2.625rem)"));
+      filter: var(--clr-img);
     }
 
     .social-container {
@@ -57,125 +57,53 @@
     }
 
     .titles-wrapper {
-      transform: translateY(3em);
-
-      @include screen(large) {
-        transform: translateY(4em);
-      }
+      transform: translateY(unquote("clamp(3em, 10vw - 1em, 4em)"));
 
       ul {
         display: flex;
-
-        @include screen(large) {
-          height: 2em;
-        }
-
-        @include screen(small) {
-          flex-direction: column;
-          height: 8rem;
-        }
+        flex-wrap: wrap;
+        max-width: unquote("clamp(8.5em, (100% - 30em) * 1000, 32em)");
+        column-gap: 1em;
+        row-gap: 0.2em;
 
         li {
           overflow: hidden;
           white-space: nowrap;
-          visibility: hidden;
           max-width: fit-content;
           position: relative;
           padding-right: 0.1em;
-          width: 0;
-
+          transform: translateX(-100vw);
           &:nth-child(even) {
-            color: $clr-accent-2;
-          }
-
-          p {
-            font-weight: 300;
-            font-size: unquote("clamp(1.1125rem, 4vw - 1rem, 1.2825rem)");
+            color: var(--clr-accent-2);
           }
         }
 
         .li-1 {
-          @include writer(write-li-1, 5em);
-          animation: write-li-1 1500ms 4000ms steps(50) forwards;
-
-          &::after {
-            @extend %caret;
-            @include caret-move(caret-li-1, 5em);
-            animation: caret 500ms 4000ms steps(9) forwards,
-              caret-li-1 1500ms 4000ms steps(50) forwards;
-          }
+          @include text-animation(anim-li-1, 0);
+          animation: anim-li-1 350ms 4000ms linear forwards;
         }
 
         .li-2 {
-          @include writer(write-li-2, 7.5em);
-          @include screen(large) {
-            transform: translateX(7rem);
-            position: absolute;
-          }
-          animation: write-li-2 1500ms 5500ms steps(50) forwards;
-
-          &::after {
-            @extend %caret;
-            @include caret-move(caret-li-2, 7.5em);
-            animation: caret 500ms 5500ms steps(16) forwards,
-              caret-li-2 1500ms 5500ms steps(50) forwards;
-          }
+          @include text-animation(anim-li-2, 0);
+          animation: anim-li-2 350ms 4350ms linear forwards;
         }
 
         .li-3 {
-          @include screen(large) {
-            transform: translateX(17.5rem);
-            position: absolute;
-          }
-          @include writer(write-li-3, 6em);
-          animation: write-li-3 1500ms 7000ms steps(50) forwards;
-
-          &::after {
-            @extend %caret;
-            @include caret-move(caret-li-3, 6em);
-            animation: caret 500ms 7000ms steps(13) forwards,
-              caret-li-3 1500ms 7000ms steps(50) forwards;
-          }
+          @include text-animation(anim-li-3, 0);
+          animation: anim-li-3 350ms 4700ms linear forwards;
         }
 
         .li-4 {
-          @include screen(large) {
-            transform: translateX(26rem);
-            position: absolute;
-          }
-          @include writer(writer-li-4, 8.5em);
-          animation: writer-li-4 1500ms 8500ms steps(50) forwards;
-
-          &::after {
-            @extend %caret;
-            @include caret-move(caret-li-4, 8.5em);
-            animation: caret 500ms 8500ms steps(19) forwards,
-              caret-li-4 1500ms 8500ms steps(50) forwards;
-          }
+          @include text-animation(anim-li-4, 0);
+          animation: anim-li-4 350ms 5050ms linear forwards;
         }
-      }
-    }
-  }
-
-  %caret {
-    position: absolute;
-    content: "";
-    width: 0.1em;
-    height: 1.1em;
-    top: 0.2em;
-    left: -0.05em;
-    background: $clr-accent-1;
-    visibility: hidden;
-    @keyframes caret {
-      100% {
-        visibility: visible;
       }
     }
   }
 
   .fade-in {
     opacity: 0;
-    animation: textFadeIn 3000ms 2000ms forwards;
+    animation: textFadeIn 250ms 3000ms forwards;
     @keyframes textFadeIn {
       100% {
         opacity: 1;
@@ -190,10 +118,9 @@
     left: 50%;
     z-index: 2;
     display: inline-block;
-    transform: translate(-50%, -20%);
-    color: $clr-primary;
+    transform: translate(-50%, 0%);
+    color: var(--clr-primary);
     letter-spacing: 0.02em;
-    font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.2625rem)");
     font-weight: 300;
     text-decoration: none;
 
@@ -206,10 +133,10 @@
       width: 1.5rem;
       height: 1.5rem;
       margin-left: -0.65rem;
-      border-left: 0.125rem solid $clr-primary;
-      border-bottom: 0.125rem solid $clr-primary;
+      border-left: 0.125rem solid var(--clr-primary);
+      border-bottom: 0.125rem solid var(--clr-primary);
       transform: rotate(-45deg) translate(0, 0);
-      animation: movement 1500ms 6000ms infinite;
+      animation: movement 1500ms 10000ms infinite;
       @keyframes movement {
         50% {
           opacity: 1;
@@ -223,7 +150,7 @@
 
   .scroll-fade-in {
     opacity: 0;
-    animation: textFadeIn 3000ms 10000ms forwards;
+    animation: textFadeIn 750ms 10000ms forwards;
     @keyframes textFadeIn {
       100% {
         opacity: 1;

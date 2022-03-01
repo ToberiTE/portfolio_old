@@ -1,5 +1,6 @@
 import "./navbar.scss";
 import logo from "../../img/logo.svg";
+import Themetoggle from "../../components/themetoggle/Themetoggle";
 
 export default function Navbar() {
   return (
@@ -23,6 +24,7 @@ export default function Navbar() {
             </a>
           </li>
         </ul>
+        <Themetoggle />
       </nav>
     </div>
   );

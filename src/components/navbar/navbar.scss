@@ -1,8 +1,8 @@
-@import "../../global";
+@import "../../variables";
 
 .navbar {
   position: fixed;
-  width: 90vw;
+  min-width: 90vw;
   z-index: 2;
   height: 10rem;
   display: flex;
@@ -10,15 +10,24 @@
   justify-content: space-between;
   flex-direction: row;
 
+  nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo {
+    filter: var(--clr-img);
+  }
+
   .skip-link {
     position: absolute;
     padding: 0.5rem 1rem;
-    border: 1px solid $clr-primary;
+    border: 1px solid var(--clr-primary);
     border-radius: 0.25rem;
-    font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
+    font-size: inherit;
     left: 50%;
     transform: translateX(-50%);
-    color: $clr-primary;
+    color: var(--clr-primary);
     transform: translate3d(0, -250%, 0);
 
     &:focus {
@@ -32,27 +41,26 @@
   ul {
     display: flex;
 
-    li:first-of-type {
+    li {
       padding-right: 2rem;
     }
 
     li a {
-      font-weight: 300;
-      font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
+      font-size: inherit;
       letter-spacing: 0.05rem;
       display: block;
       margin-inline: 1rem;
-      color: $clr-primary;
+      color: var(--clr-primary);
       transition: color 0.3s;
 
       &:hover,
       &:focus,
       &:active {
-        color: $clr-accent-2;
+        color: var(--clr-accent-2);
       }
 
       i {
-        color: $clr-primary;
+        color: var(--clr-primary);
         font-size: 1.465rem;
         padding-right: 0.8rem;
       }

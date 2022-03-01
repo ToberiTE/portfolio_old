@@ -1,4 +1,5 @@
-@import "global";
+@import "variables";
+@import "themes";
 
 *,
 *::before,
@@ -8,39 +9,36 @@
   padding: 0;
 }
 
-img,
-picture {
-  max-width: 100%;
-}
-
 html {
+  min-height: 100vh;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #310046 #c7c7c7;
+  scrollbar-color: hsl(272, 100%, 23%) hsl(0, 0%, 52%);
 }
 
 ::-webkit-scrollbar {
   width: 0.4em;
 }
 ::-webkit-scrollbar-track {
-  background: #c7c7c7;
+  background: hsl(0, 0%, 52%);
 }
 ::-webkit-scrollbar-thumb {
-  background: #310046;
+  background: hsl(272, 100%, 23%);
 }
 
 body {
+  background-color: var(--clr-bg);
   overflow-y: scroll;
   margin-inline: auto;
-  height: 100vh;
-  width: unquote("max(90vw, 24.5rem)");
+  min-height: 100vh;
+  max-width: unquote("max(90vw, 24.5rem)");
   opacity: 0;
   font-family: $ff-primary;
-  color: $clr-primary;
+  color: var(--clr-primary);
   font-weight: 300;
-  font-size: 1.3125rem;
+  font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
   line-height: 1.6;
-  animation: fadeIn 3000ms forwards;
+  animation: fadeIn 550ms 2000ms forwards;
   @keyframes fadeIn {
     100% {
       opacity: 1;
@@ -54,24 +52,18 @@ body {
     width: 100%;
     height: 100%;
     z-index: -9999;
-    background: linear-gradient(
-        180deg,
-        hsl(170, 100%, 3%),
-        hsl(170, 100%, 8%),
-        hsl(170, 100%, 13.5%) 84%,
-        hsl(170, 100%, 10%) 86%,
-        hsl(170, 100%, 4%)
-      )
-      center / cover no-repeat;
+    background: var(--bg-gradient);
 
-    & .stars-layer {
+    .stars-layer {
+      display: var(--display);
       height: 85%;
       width: 100%;
       z-index: -9000;
       background: url(./img/stars.svg) center / cover no-repeat;
     }
+
     .blink-wrapper {
-      display: flex;
+      display: var(--display);
       justify-content: space-evenly;
       position: fixed;
       top: 0;
@@ -109,11 +101,15 @@ body {
 }
 
 * > .body-container {
-  width: unquote("max(60%, 24.5rem)");
+  width: unquote("max(60%, 20.5rem)");
 }
 
 h1 {
-  font-size: unquote("clamp(2.625rem, 5vw, 6.625rem)");
+  font-size: unquote("clamp(2.2525rem, 5vw, 6.625rem)");
+}
+
+h2 {
+  font-size: unquote("clamp(1.2125rem, 5vw - .5rem, 2.2125rem)");
 }
 
 ul {
@@ -123,9 +119,14 @@ ul {
 a {
   text-decoration: none;
 
-  &:focus {
-    outline: 1px dotted $clr-primary;
+  &:focus-visible {
+    outline: 0.1rem dotted var(--clr-primary);
   }
+}
+
+img,
+picture {
+  max-width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -145,7 +146,7 @@ a {
     font-size: 1.325rem;
     position: absolute;
     opacity: 0;
-    transition: opacity 200ms 200ms ease-out;
+    transition: opacity 100ms ease-out;
 
     padding: 0.2rem 0.8rem;
     color: $clr-primary;
@@ -153,8 +154,9 @@ a {
     margin: -1.5rem 0 0 1.5rem;
     background: $clr-accent-5;
   }
-  [data-tooltip]:hover:before {
+  &:hover:before,
+  &:focus-visible:before {
     opacity: 1;
-    transition: opacity 200ms 1000ms ease-in;
+    transition: opacity 250ms 600ms ease;
   }
 }

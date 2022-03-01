@@ -19,6 +19,7 @@ export default function Landing() {
               target="_blank"
               rel="noreferrer"
               data-tooltip="GitHub"
+              aria-label="Github profile"
             >
               <i className="fab fa-github"></i>
             </a>
@@ -28,6 +29,7 @@ export default function Landing() {
               target="_blank"
               rel="noreferrer"
               data-tooltip="LinkedIn"
+              aria-label="Linkedin profile"
             >
               <i className="fab fa-linkedin"></i>
             </a>
@@ -50,6 +52,7 @@ export default function Landing() {
           </ul>
         </div>
       </div>
+
       <a className="scroll scroll-fade-in" href="#services">
         <span></span>
         Scroll

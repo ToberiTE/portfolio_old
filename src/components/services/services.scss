@@ -1,8 +1,7 @@
-@import "../../global.scss";
+@import "../../variables";
+
 .services {
-  margin-top: 12.5%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -15,6 +14,7 @@
       margin-bottom: 10rem;
       font-weight: 200;
       position: relative;
+      color: var(--clr-accent-1);
 
       &:nth-child(1)::after {
         content: "";
@@ -28,27 +28,27 @@
 
     .services-wrapper {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-width: 50%;
       margin-block: 10%;
-      h2 {
-        font-size: unquote("clamp(1.3125rem, 5vw - .5rem, 2.2125rem)");
+
+      .services-text {
+        display: flex;
+        flex: 1 1 50%;
+        padding: 1em;
+        flex-direction: column;
+        background: hsl(0, 0%, 10%);
+        box-shadow: -0.8em 1.5em 1em 0.5em hsl(0, 0%, 10%);
+
+        &:nth-of-type(2) {
+          text-align: start;
+        }
       }
-      p {
-        font-size: unquote("clamp(1.1125rem, 5vw - 1rem, 1.3125rem)");
-      }
-      img {
-        width: unquote("clamp(5rem, 10vw - 1rem, 10rem)");
+
+      .services-img {
+        display: flex;
+        flex: 1 1 50%;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
-}
-.services-item:nth-of-type(odd) {
-  display: flex;
-  align-self: flex-start;
-}
-.services-item:nth-of-type(even) {
-  display: flex;
-  align-self: flex-end;
 }
