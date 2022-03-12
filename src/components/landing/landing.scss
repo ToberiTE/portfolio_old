@@ -1,4 +1,4 @@
-@import "../../variables";
+@import "../../global";
 @import "../../mixins";
 
 .landing {
@@ -7,6 +7,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .skip-link {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    z-index: 1;
+    top: 10rem;
+    border: 1px solid var(--clr-primary);
+    border-radius: 0.25rem;
+    font-size: inherit;
+    color: var(--clr-primary);
+    transform: translateY(-15rem);
+
+    &:focus {
+      transform: translateY(0);
+    }
+  }
 
   .body-container {
     h1 {
@@ -21,7 +37,7 @@
       &:nth-child(2)::after {
         content: "";
         position: absolute;
-        border: 1px solid $clr-accent-4;
+        border: 1px solid $clr-accent-3;
         width: 20%;
         left: 0;
         top: 100%;
@@ -116,9 +132,9 @@
     position: absolute;
     bottom: 1.25rem;
     left: 50%;
-    z-index: 2;
+    z-index: 1;
     display: inline-block;
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, 5%);
     color: var(--clr-primary);
     letter-spacing: 0.02em;
     font-weight: 300;

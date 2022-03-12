@@ -6,13 +6,4 @@ $clr-accent-2: hsl(270, 100%, 65%);
 $clr-accent-3: hsl(270, 100%, 40%);
 $clr-accent-4: hsl(270, 100%, 30%);
 $clr-accent-5: hsl(270, 100%, 20%);
-
-$bg-gradient: linear-gradient(
-    180deg,
-    hsl(170, 100%, 3%),
-    hsl(170, 100%, 8%),
-    hsl(170, 100%, 13.5%) 84%,
-    hsl(170, 100%, 10%) 86%,
-    hsl(170, 100%, 4%)
-  )
-  center / cover no-repeat;
+$bg-mobilenav: hsla(0, 0%, 10%, 0.95);

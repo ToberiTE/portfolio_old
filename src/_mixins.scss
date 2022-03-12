@@ -1,3 +1,16 @@
+@mixin screen($scr) {
+  @if $scr==small {
+    @media (max-width: 60em) {
+      @content;
+    }
+  }
+  @if $scr==large {
+    @media (min-width: 60em) {
+      @content;
+    }
+  }
+}
+
 @mixin text-animation($name, $to) {
   @keyframes #{$name} {
     100% {

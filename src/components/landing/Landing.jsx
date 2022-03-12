@@ -4,6 +4,9 @@ import smile from "../../img/smile.svg";
 export default function Landing() {
   return (
     <div className="landing" id="landing">
+      <a href="#services" className="skip-link">
+        Skip to content
+      </a>
       <div className="body-container">
         <h1>DigitalCarpentry.</h1>
         <h1>

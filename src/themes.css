@@ -3,7 +3,7 @@
   --clr-bg: hsl(0, 0%, 100%);
   --clr-accent-1: hsl(0, 0%, 20%);
   --clr-accent-2: hsl(270, 100%, 50%);
-  --clr-toggleborder: hsla(0, 0%, 0%, 0.35);
+  --br-themetoggle: hsla(0, 0%, 0%, 0.35);
   --clr-img: invert(85%);
   --clr-imgshadow: hsla(0, 0%, 0%, 0.5);
   --bg-gradient: linear-gradient(
@@ -23,7 +23,7 @@
   --clr-bg: hsl(0, 0%, 15%);
   --clr-accent-1: hsl(0, 0%, 90%);
   --clr-accent-2: hsl(270, 100%, 65%);
-  --clr-toggleborder: hsla(0, 0%, 100%, 0.35);
+  --br-themetoggle: hsla(0, 0%, 100%, 0.35);
   --clr-img: invert(0%);
   --clr-imgshadow: hsla(0, 0%, 100%, 0.5);
   --bg-gradient: linear-gradient(

@@ -1,7 +1,6 @@
 {
   "name": "Portfolio",
   "short_name": "Portfolio",
-  "background_color": "var(--clr-bg)",
   "theme_color": "var(--clr-bg)",
   "description": "TE's developer portfolio.",
   "icons": [
