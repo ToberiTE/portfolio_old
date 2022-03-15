@@ -17,7 +17,7 @@
 
   &:checked + .toggle-label {
     &:before {
-      background: url(../../img/moon.svg) center / cover no-repeat;
+      background: url(../../img/sun.svg) center / cover no-repeat;
       animation: moon 350ms forwards;
       @keyframes moon {
         0% {
@@ -48,7 +48,7 @@
     width: 2rem;
     aspect-ratio: 1;
     top: 0.1075rem;
-    background: url(../../img/sun.svg) center / cover no-repeat;
+    background: url(../../img/moon.svg) center / cover no-repeat;
     animation: sun 350ms forwards;
     @keyframes sun {
       0% {

@@ -8,7 +8,7 @@ import { storedTheme } from "../src/themes";
 function App() {
   useEffect(() => {
     storedTheme();
-  });
+  }, []);
   return (
     <div className="app">
       <Navbar />

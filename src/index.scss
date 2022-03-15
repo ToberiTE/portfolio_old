@@ -26,28 +26,6 @@ html {
   background: hsl(272, 100%, 23%);
 }
 
-.splash-screen {
-  position: fixed;
-  overflow: hidden;
-  z-index: 9999;
-  opacity: 1;
-  min-height: 100vh;
-  background: var(--clr-bg);
-  animation: fadeOut 250ms 5000ms forwards;
-  @keyframes fadeOut {
-    to {
-      z-index: -9999;
-      opacity: 0;
-    }
-  }
-  .splash-img {
-    margin: 0 auto;
-    width: 5rem;
-    aspect-ratio: 1;
-    color: var(--clr-img);
-  }
-}
-
 body {
   background-color: var(--clr-bg);
   overflow-y: scroll;

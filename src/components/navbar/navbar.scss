@@ -23,6 +23,7 @@
   nav {
     display: flex;
     z-index: 1;
+
     @include screen(small) {
       max-height: 100vh;
       z-index: 9000;
