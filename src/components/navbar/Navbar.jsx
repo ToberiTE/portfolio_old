@@ -1,11 +1,21 @@
 import "./navbar.scss";
 import logo from "../../img/logo.svg";
 import Themetoggle from "../../components/themetoggle/Themetoggle";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const navRef = useRef();
+  const handleClick = (e) => {
+    if (!navRef.current.contains(e.target)) {
+      setOpen(!open);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  });
   return (
     <div className="navbar">
       <a href="#landing" className="logo">
@@ -25,7 +35,7 @@ export default function Navbar() {
         <span className="sr-only">Menu</span>
       </button>
 
-      <nav data-visible={open}>
+      <nav ref={navRef} data-visible={open}>
         <ul>
           <li>
             <a onClick={() => setOpen(!open)} href="#services">
