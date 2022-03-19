@@ -9,15 +9,16 @@ export default function Navbar() {
   const navRef = useRef();
   const handleClick = (e) => {
     if (!navRef.current.contains(e.target)) {
-      setOpen(!open);
+      setOpen(false);
     }
   };
   useEffect(() => {
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
   });
+
   return (
-    <div className="navbar">
+    <div className="navbar" ref={navRef}>
       <a href="#landing" className="logo">
         <img src={logo} alt="logo"></img>
       </a>
@@ -35,7 +36,7 @@ export default function Navbar() {
         <span className="sr-only">Menu</span>
       </button>
 
-      <nav ref={navRef} data-visible={open}>
+      <nav data-visible={open}>
         <ul>
           <li>
             <a onClick={() => setOpen(!open)} href="#services">
