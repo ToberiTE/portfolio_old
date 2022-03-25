@@ -11,7 +11,7 @@
   &:focus-visible + .toggle-label {
     outline: dotted 0.1rem var(--clr-primary);
     @include screen(small) {
-      outline: dotted 0.1rem $clr-primary;
+      outline: dotted 0.1rem var(--clr-primary);
     }
   }
 
@@ -37,9 +37,6 @@
   width: 4.5rem;
   height: 2.4rem;
   border: 0.1rem solid var(--br-themetoggle);
-  @include screen(small) {
-    border-color: rgba(255, 255, 255, 0.35);
-  }
   border-radius: 100vw;
 
   &:before {

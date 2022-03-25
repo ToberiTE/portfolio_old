@@ -20,10 +20,10 @@ html {
   width: 0.4em;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(0, 0%, 52%);
+  background-color: hsl(0, 0%, 52%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(272, 100%, 23%);
+  background-color: hsl(272, 100%, 23%);
 }
 
 body {
@@ -39,17 +39,144 @@ body {
   .bg {
     position: fixed;
     width: 100%;
-    min-height: 100vh;
-    z-index: -200;
-    background: var(--bg-gradient);
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(
+        to right top,
+        #172347,
+        #015268,
+        #025385,
+        #038298
+      )
+      center / cover no-repeat;
+
+    .aurora {
+      * {
+        width: 62rem;
+        aspect-ratio: 1;
+        position: absolute;
+        filter: var(--bg-filter);
+        overflow: hidden;
+      }
+
+      .field-1 {
+        background: radial-gradient(ellipse at top, #04e2b7, #172347);
+        animation: field1 40000ms linear infinite;
+      }
+      .field-2 {
+        background: radial-gradient(ellipse at left, #025385, #0ef3c5);
+        animation: field2 40000ms linear infinite;
+      }
+      .field-3 {
+        background: radial-gradient(ellipse at center, #172347, #025385);
+        animation: field3 40000ms linear infinite;
+      }
+      .field-4 {
+        background: radial-gradient(ellipse at bottom, #04e2b7, #038298);
+        animation: field4 40000ms linear infinite;
+      }
+      .field-5 {
+        background: radial-gradient(ellipse at right, #172347, #0ef3c5);
+        animation: field5 40000ms linear infinite;
+      }
+
+      @keyframes field1 {
+        0% {
+          transform: translate3d(100%, 0%, 0);
+        }
+        25% {
+          transform: translate3d(50%, 10%, 0);
+        }
+        50% {
+          transform: translate3d(50%, 10%, 0);
+        }
+        75% {
+          transform: translate3d(100%, 0%, 0);
+        }
+        100% {
+          transform: translate3d(50%, 0%, 0);
+        }
+      }
+      @keyframes field2 {
+        0% {
+          transform: translate3d(100%, 0%, 0);
+        }
+        25% {
+          transform: translate3d(50%, 0%, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate3d(0%, 10%, 0) rotate(100deg);
+        }
+        75% {
+          transform: translate3d(50%, 0%, 0);
+        }
+        100% {
+          transform: translate3d(100%, 0%, 0);
+        }
+      }
+      @keyframes field3 {
+        0% {
+          transform: translate3d(0%, 0%, 0);
+        }
+        25% {
+          transform: translate3d(50%, 50%, 0);
+        }
+        50% {
+          transform: translate3d(100%, 10%, 0);
+        }
+        75% {
+          transform: translate3d(50%, 0%, 0);
+        }
+        100% {
+          transform: translate3d(0%, 0%, 0);
+        }
+      }
+      @keyframes field4 {
+        0% {
+          transform: translate3d(0%, 0%, 0);
+        }
+        25% {
+          transform: translate3d(0%, 20%, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate3d(10%, 60%, 0) rotate(100deg);
+        }
+        75% {
+          transform: translate3d(50%, 0%, 0);
+        }
+        100% {
+          transform: translate3d(0%, 0%, 0);
+        }
+      }
+      @keyframes field5 {
+        0% {
+          transform: translate3d(0%, 0%, 0);
+        }
+        25% {
+          transform: translate3d(50%, 40%, 0);
+        }
+        50% {
+          transform: translate3d(80%, 0%, 0) rotate(0deg);
+        }
+        75% {
+          transform: translate3d(50%, 40%, 0) rotate(200deg);
+        }
+        100% {
+          transform: translate3d(0%, 0%, 0) rotate(360deg);
+        }
+      }
+    }
 
     svg {
-      position: absolute;
-      height: 40%;
+      position: fixed;
       width: 100%;
-      bottom: 0;
+      height: 100%;
+      filter: blur(0.25rem);
+      transform: scale(1.025);
+
       path {
-        fill: red;
+        fill: var(--clr-bg);
       }
     }
   }
@@ -107,7 +234,7 @@ picture {
     color: $clr-primary;
     pointer-events: none;
     margin: -1.5rem 0 0 1.5rem;
-    background: $clr-accent-5;
+    background-color: $clr-accent-5;
   }
   &:hover:before,
   &:focus-visible:before {
@@ -129,6 +256,6 @@ picture {
 
 .navbar > nav[data-visible="true"] {
   Themetoggle {
-    outline: 1px dotted $clr-primary;
+    outline: 0.1rem dotted $clr-primary;
   }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" viewBox="0 0 327.28 377.92"  width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+<svg version="1.1" viewBox="0 0 327.28 377.92" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
 <g transform="translate(-5.6203 -149.1)">
-<title>Layer 1</title>
 <text x="38.079636" y="413.65085" fill="#ffffff" font-family="sans-serif" font-size="40px" style="line-height:1.25" xml:space="preserve"><tspan/></text>
 <g transform="matrix(.66667 0 0 .67541 28.56 116.75)" fill="#fff" stroke-width="1.4903" aria-label="T">
 <path transform="matrix(1.5 0 0 1.4806 -42.84 -172.86)" d="m169.01 157.76 155.89 90.272 0.5 180.56-156.39 89.772-155.89-90.272v-180.56z" fill="transparent" stroke="#fff" stroke-width="15"/>

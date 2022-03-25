@@ -22,8 +22,6 @@
 
   nav {
     display: flex;
-    z-index: 1;
-
     @include screen(small) {
       max-height: 100vh;
       z-index: 9000;
@@ -33,18 +31,11 @@
       inset: 0 0 0 50vw;
       gap: 3em;
       padding: unquote("min(30vh, 50vh) 2em");
-      background: $bg-mobilenav;
+      background-color: var(--bg-mobilenav);
       transform: translateX(100%);
       transition: transform 350ms ease;
 
       &[data-visible="true"] {
-        a {
-          color: $clr-primary;
-
-          &:focus-visible {
-            outline: 1px dotted $clr-primary;
-          }
-        }
         transform: translateX(0%);
       }
     }
@@ -67,18 +58,42 @@
           letter-spacing: 0.05rem;
           margin-inline: 1rem;
           color: var(--clr-primary);
-          transition: color 0.3s;
+          position: relative;
 
-          &:hover,
-          &:focus,
-          &:active {
-            color: var(--clr-accent-2);
+          &:hover::after,
+          &:hover::before {
+            content: "";
+            position: absolute;
+            top: 1.75rem;
+            width: 2.5rem;
+            height: 0.15rem;
+            background-color: var(--clr-primary);
+            opacity: 0;
+          }
+          &:hover::before {
+            transform: translateX(-2.5rem);
+            animation: move-before 250ms linear forwards;
+            @keyframes move-before {
+              100% {
+                opacity: 1;
+                transform: translateX(0.1rem);
+              }
+            }
+          }
+          &:hover::after {
+            transform: translateX(0);
+            animation: move-after 250ms linear forwards;
+            @keyframes move-after {
+              100% {
+                opacity: 1;
+                transform: translateX(-2.6rem);
+              }
+            }
           }
         }
       }
     }
   }
-
   .nav-btn {
     @include screen(large) {
       display: none;
@@ -94,28 +109,45 @@
     cursor: pointer;
 
     & span {
-      background: var(--clr-primary);
+      background-color: var(--clr-primary);
       width: 2.4rem;
       height: 0.1rem;
       transition: transform 350ms ease;
       transform-origin: right;
+      &:nth-child(2) {
+        width: 2rem;
+      }
+      &:nth-child(3) {
+        width: 1.6rem;
+      }
     }
 
     &[aria-expanded="true"] {
       &:focus-visible {
-        outline: 1px dotted $clr-primary;
+        outline: 0.1rem dotted var(--clr-primary);
       }
       span {
-        background: $clr-primary;
+        background-color: var(--clr-primary);
 
         &:nth-child(1) {
           transform: rotate(-45deg);
         }
         &:nth-child(2) {
-          display: none;
+          transform: translateX(3rem);
+          animation: fade 350ms ease forwards;
         }
         &:nth-child(3) {
+          transform: translateX(-1.5rem);
+          animation: fade 350ms ease forwards;
+        }
+        &:nth-child(4) {
+          width: 2.4rem;
           transform: rotate(45deg);
+        }
+        @keyframes fade {
+          100% {
+            opacity: 0;
+          }
         }
       }
     }

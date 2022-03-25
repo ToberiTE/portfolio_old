@@ -22,7 +22,6 @@ export default function Navbar() {
       <a href="#landing" className="logo">
         <img src={logo} alt="logo"></img>
       </a>
-
       <button
         onClick={() => setOpen(!open)}
         aria-controls="nav"
@@ -32,6 +31,7 @@ export default function Navbar() {
         <span className="span1"></span>
         <span className="span2"></span>
         <span className="span3"></span>
+        <span className="span4"></span>
 
         <span className="sr-only">Menu</span>
       </button>
