@@ -1,5 +1,4 @@
 import "./navbar.scss";
-import logo from "../../img/logo.svg";
 import Themetoggle from "../../components/themetoggle/Themetoggle";
 import { useState, useRef, useEffect } from "react";
 
@@ -19,9 +18,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar" ref={navRef}>
-      <a href="#landing" className="logo">
-        <img src={logo} alt="logo"></img>
-      </a>
+      <a href="#landing" className="logo"></a>
       <button
         onClick={() => setOpen(!open)}
         aria-controls="nav"

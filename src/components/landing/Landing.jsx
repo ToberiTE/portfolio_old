@@ -1,5 +1,4 @@
 import "./landing.scss";
-import smile from "../../img/smile.svg";
 
 export default function Landing() {
   return (
@@ -11,7 +10,7 @@ export default function Landing() {
         <h1>DigitalCarpentry.</h1>
         <h1>
           Turning Ideas &#8594;
-          <img className="smile-icon" src={smile} alt="smile-img"></img>
+          <span className="smile-icon"></span>
         </h1>
         <div className="social-container fade-in">
           <p className="social-text">Meet Tobias</p>
