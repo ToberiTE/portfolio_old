@@ -18,7 +18,9 @@ export default function Navbar() {
 
   return (
     <div className="navbar" ref={navRef}>
-      <a href="#landing" className="logo"></a>
+      <a href="#landing" className="logo" aria-label="website logo">
+        {" "}
+      </a>
       <button
         onClick={() => setOpen(!open)}
         aria-controls="nav"
@@ -41,8 +43,13 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a onClick={() => setOpen(!open)} href="#projects">
-              Projects
+            <a onClick={() => setOpen(!open)} href="#work">
+              Work
+            </a>
+          </li>
+          <li>
+            <a onClick={() => setOpen(!open)} href="#contact">
+              Contact
             </a>
           </li>
         </ul>

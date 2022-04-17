@@ -1,7 +1,7 @@
 import Navbar from "./components/navbar/Navbar";
 import Landing from "./components/landing/Landing";
 import Services from "./components/services/Services";
-import Projects from "./components/projects/Projects";
+import Work from "./components/work/Work";
 import { useEffect } from "react";
 import { storedTheme } from "../src/themes";
 
@@ -15,7 +15,7 @@ function App() {
       <div className="sections">
         <Landing />
         <Services />
-        <Projects />
+        <Work />
       </div>
     </div>
   );

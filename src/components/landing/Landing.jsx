@@ -7,11 +7,23 @@ export default function Landing() {
         Skip to content
       </a>
       <div className="body-container">
-        <h1>DigitalCarpentry.</h1>
-        <h1>
-          Turning Ideas &#8594;
-          <span className="smile-icon"></span>
-        </h1>
+        <svg viewBox="0 0 450 450">
+          <defs>
+            <path
+              id="circle"
+              d="M243.2, 382.4c-74.8,   
+    0-135.5-60.7-135.5-135.5s60.7-135.5,135.5-135.5s135.5, 60.7, 135.5,
+    135.5 S318, 382.4, 243.2, 382.4z"
+            />
+          </defs>
+          <text>
+            <textPath xlinkHref="#circle">UI/UX Frontend Backend</textPath>
+          </text>
+        </svg>
+        <h1>Digital Carpentry.</h1>
+        <h2>
+          Making <span>IT</span> all come full circle
+        </h2>
         <div className="social-container fade-in">
           <p className="social-text">Meet Tobias</p>
           <div className="social-links-wrapper">
@@ -37,27 +49,13 @@ export default function Landing() {
             </a>
           </div>
         </div>
-        <div className="titles-wrapper">
-          <ul>
-            <li className="li-1">
-              <p>Developer</p>
-            </li>
-            <li className="li-2">
-              <p>Technical Writer</p>
-            </li>
-            <li className="li-3">
-              <p>IT Generalist</p>
-            </li>
-            <li className="li-4">
-              <p>Security Enthusiast</p>
-            </li>
-          </ul>
-        </div>
+        <a className="landing-btn" href="#services">
+          Explore more
+        </a>
       </div>
 
-      <a className="scroll scroll-fade-in" href="#services">
+      <a className="scroll" href="#services">
         <span></span>
-        Scroll
       </a>
     </div>
   );
